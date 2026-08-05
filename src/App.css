@@ -1,0 +1,439 @@
+/* ==========================================================
+   RESET
+========================================================== */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:#F4F7FA;
+
+    color:#1E293B;
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    line-height:1.7;
+
+    padding:48px 20px;
+
+}
+
+/* ==========================================================
+   STUDENT CARD
+========================================================== */
+
+.header,
+.main-container,
+.footer{
+
+    max-width:1000px;
+
+    margin-inline:auto;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.header{
+
+    background:#ffffff;
+
+    border:1px solid #E2E8F0;
+
+    border-radius:18px;
+
+    padding:48px;
+
+    margin-bottom:28px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+
+    box-shadow:
+        0 8px 25px rgba(15,23,42,.06);
+
+}
+
+.header img{
+
+    width:150px;
+
+    height:150px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:4px solid #E2E8F0;
+
+    margin-bottom:24px;
+
+    transition:.3s ease;
+
+}
+
+.header img:hover{
+
+    transform:scale(1.04);
+
+    border-color:#1E3A8A;
+
+}
+
+.header h1{
+
+    font-size:2.3rem;
+
+    font-weight:700;
+
+    color:#0F172A;
+
+    margin-bottom:10px;
+
+}
+
+.header p{
+
+    color:#64748B;
+
+    font-size:1rem;
+
+}
+
+/* ==========================================================
+   MAIN GRID
+========================================================== */
+
+.main-container{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(320px,1fr));
+
+    gap:24px;
+
+}
+
+/* ==========================================================
+   CARD STYLE
+========================================================== */
+
+.personal-info,
+.academic-info,
+.skills,
+.contact,
+.graduation-status{
+
+    background:#ffffff;
+
+    border:1px solid #E2E8F0;
+
+    border-radius:18px;
+
+    padding:32px;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+
+}
+
+.personal-info:hover,
+.academic-info:hover,
+.skills:hover,
+.contact:hover,
+.graduation-status:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#1E3A8A;
+
+    box-shadow:
+        0 12px 30px rgba(15,23,42,.08);
+
+}
+
+/* ==========================================================
+   HEADINGS
+========================================================== */
+
+.main-container h2{
+
+    font-size:1.35rem;
+
+    color:#0F172A;
+
+    margin-bottom:20px;
+
+    padding-bottom:12px;
+
+    border-bottom:2px solid #E2E8F0;
+
+}
+
+/* ==========================================================
+   PARAGRAPHS
+========================================================== */
+
+.main-container p{
+
+    margin-bottom:12px;
+
+    color:#475569;
+
+    font-size:1rem;
+
+}
+
+.main-container p:last-child{
+
+    margin-bottom:0;
+
+}
+
+/* ==========================================================
+   SKILLS
+========================================================== */
+
+.skills ul{
+
+    list-style:none;
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+}
+
+.skills li{
+
+    background:#F1F5F9;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:999px;
+
+    padding:10px 18px;
+
+    font-size:.95rem;
+
+    transition:.3s ease;
+
+}
+
+.skills li:hover{
+
+    background:#1E3A8A;
+
+    color:#ffffff;
+
+    border-color:#1E3A8A;
+
+}
+
+/* ==========================================================
+   CONTACT
+========================================================== */
+
+.contact a{
+
+    display:inline-block;
+
+    color:#1E3A8A;
+
+    text-decoration:none;
+
+    margin-bottom:14px;
+
+    transition:.3s ease;
+
+    font-weight:500;
+
+}
+
+.contact a:hover{
+
+    color:#1D4ED8;
+
+    transform:translateX(4px);
+
+}
+
+/* ==========================================================
+   GRADUATION STATUS
+========================================================== */
+
+.graduation-status p{
+
+    font-size:1.1rem;
+
+    font-weight:600;
+
+    color:#16A34A;
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.footer{
+
+    margin-top:32px;
+
+    text-align:center;
+
+    color:#64748B;
+
+    border-top:1px solid #CBD5E1;
+
+    padding-top:24px;
+
+}
+
+/* ==========================================================
+   ACCESSIBILITY
+========================================================== */
+
+::selection{
+
+    background:#1E3A8A;
+
+    color:#ffffff;
+
+}
+
+a:focus-visible{
+
+    outline:2px solid #1E3A8A;
+
+    outline-offset:4px;
+
+    border-radius:4px;
+
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#E2E8F0;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#94A3B8;
+
+    border-radius:999px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#1E3A8A;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:768px){
+
+    body{
+
+        padding:24px 16px;
+
+    }
+
+    .header{
+
+        padding:36px 24px;
+
+    }
+
+    .header h1{
+
+        font-size:1.9rem;
+
+    }
+
+    .main-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .header img{
+
+        width:120px;
+
+        height:120px;
+
+    }
+
+    .header h1{
+
+        font-size:1.7rem;
+
+    }
+
+    .personal-info,
+    .academic-info,
+    .skills,
+    .contact,
+    .graduation-status{
+
+        padding:24px;
+
+    }
+
+    .skills li{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+}
