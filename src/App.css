@@ -1,439 +1,549 @@
-/* ==========================================================
-   RESET
-========================================================== */
+/* ============================================================
+   GOOGLE FONT
+============================================================ */
 
-*,
-*::before,
-*::after{
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+/* ============================================================
+   DESIGN TOKENS
+============================================================ */
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary: #7c3aed;
+  --accent: #06b6d4;
+
+  --background: #edf4ff;
+  --surface: rgba(255,255,255,.82);
+
+  --text: #0f172a;
+  --text-light: #64748b;
+
+  --success: #16a34a;
+  --success-bg: #dcfce7;
+
+  --danger: #dc2626;
+  --danger-bg: #fee2e2;
+
+  --border: rgba(255,255,255,.45);
+
+  --shadow:
+    0 20px 40px rgba(15,23,42,.08);
+
+  --radius:22px;
+
+  --transition:.35s ease;
+}
+
+/* ============================================================
+   RESET
+============================================================ */
+
+*{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
 html{
+
     scroll-behavior:smooth;
 }
 
 body{
 
-    background:#F4F7FA;
+    font-family:"Inter",sans-serif;
 
-    color:#1E293B;
+    min-height:100vh;
 
-    font-family:
-        Inter,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+    color:var(--text);
 
-    line-height:1.7;
+    background:
+        radial-gradient(circle at top left,#2563eb18,transparent 35%),
+        radial-gradient(circle at bottom right,#7c3aed18,transparent 35%),
+        linear-gradient(135deg,#eef5ff,#f8fbff);
 
-    padding:48px 20px;
-
+    padding:60px 30px;
 }
 
-/* ==========================================================
-   STUDENT CARD
-========================================================== */
+/* ============================================================
+   GRID
+============================================================ */
 
-.header,
-.main-container,
-.footer{
+.student-card-grid{
 
-    max-width:1000px;
+    width:min(1450px,95%);
 
-    margin-inline:auto;
+    margin:auto;
 
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(360px,1fr));
+
+    gap:35px;
 }
 
-/* ==========================================================
+/* ============================================================
+   CARD
+============================================================ */
+
+.student-card{
+
+    background:var(--surface);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+    position:relative;
+}
+
+.student-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,.35),
+        transparent
+    );
+
+    pointer-events:none;
+}
+
+.student-card:hover{
+
+    transform:
+    translateY(-10px);
+
+    box-shadow:
+    0 30px 60px rgba(37,99,235,.18);
+}
+
+/* ============================================================
    HEADER
-========================================================== */
+============================================================ */
 
 .header{
 
-    background:#ffffff;
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #4f46e5,
+        #7c3aed
+    );
 
-    border:1px solid #E2E8F0;
-
-    border-radius:18px;
-
-    padding:48px;
-
-    margin-bottom:28px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
+    padding:35px 20px;
 
     text-align:center;
 
-    box-shadow:
-        0 8px 25px rgba(15,23,42,.06);
+    color:white;
 
+    position:relative;
+}
+
+.header::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:200px;
+
+    height:200px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.08);
+
+    top:-100px;
+
+    right:-70px;
 }
 
 .header img{
 
-    width:150px;
+    width:140px;
 
-    height:150px;
+    height:140px;
 
     object-fit:cover;
 
     border-radius:50%;
 
-    border:4px solid #E2E8F0;
+    border:5px solid white;
 
-    margin-bottom:24px;
+    margin:auto;
 
-    transition:.3s ease;
+    margin-bottom:18px;
 
+    box-shadow:
+    0 15px 30px rgba(0,0,0,.25);
+
+    transition:.4s;
 }
 
-.header img:hover{
+.student-card:hover .header img{
 
-    transform:scale(1.04);
-
-    border-color:#1E3A8A;
-
+    transform:
+    scale(1.06)
+    rotate(-2deg);
 }
 
 .header h1{
 
-    font-size:2.3rem;
+    font-size:1.6rem;
 
     font-weight:700;
 
-    color:#0F172A;
-
-    margin-bottom:10px;
-
+    margin-bottom:8px;
 }
 
 .header p{
 
-    color:#64748B;
+    opacity:.92;
 
-    font-size:1rem;
+    font-weight:500;
 
+    letter-spacing:1px;
 }
 
-/* ==========================================================
-   MAIN GRID
-========================================================== */
+/* ============================================================
+   MAIN
+============================================================ */
 
 .main-container{
 
+    padding:28px;
+
     display:grid;
 
-    grid-template-columns:
-        repeat(auto-fit,minmax(320px,1fr));
-
-    gap:24px;
-
+    gap:22px;
 }
 
-/* ==========================================================
-   CARD STYLE
-========================================================== */
+/* ============================================================
+   SECTION CARD
+============================================================ */
 
-.personal-info,
-.academic-info,
-.skills,
-.contact,
-.graduation-status{
+.main-container section,
+.main-container article{
 
-    background:#ffffff;
+    background:rgba(255,255,255,.72);
 
-    border:1px solid #E2E8F0;
+    border-radius:16px;
 
-    border-radius:18px;
+    border:1px solid rgba(226,232,240,.8);
 
-    padding:32px;
+    padding:18px;
 
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        border-color .3s ease;
-
+    transition:.3s;
 }
 
-.personal-info:hover,
-.academic-info:hover,
-.skills:hover,
-.contact:hover,
-.graduation-status:hover{
+.main-container section:hover,
+.main-container article:hover{
 
-    transform:translateY(-6px);
-
-    border-color:#1E3A8A;
+    transform:translateY(-4px);
 
     box-shadow:
-        0 12px 30px rgba(15,23,42,.08);
-
+    0 10px 25px rgba(37,99,235,.10);
 }
 
-/* ==========================================================
-   HEADINGS
-========================================================== */
+/* ============================================================
+   TITLES
+============================================================ */
 
 .main-container h2{
 
-    font-size:1.35rem;
+    color:var(--primary);
 
-    color:#0F172A;
+    font-size:1.05rem;
 
-    margin-bottom:20px;
+    margin-bottom:18px;
 
-    padding-bottom:12px;
+    font-weight:700;
 
-    border-bottom:2px solid #E2E8F0;
+    display:flex;
 
+    align-items:center;
+
+    gap:10px;
 }
 
-/* ==========================================================
-   PARAGRAPHS
-========================================================== */
+.main-container h2::before{
 
-.main-container p{
+    content:"";
 
-    margin-bottom:12px;
+    width:8px;
 
-    color:#475569;
+    height:22px;
 
-    font-size:1rem;
+    border-radius:10px;
 
+    background:
+    linear-gradient(
+        to bottom,
+        var(--primary),
+        var(--secondary)
+    );
 }
 
-.main-container p:last-child{
+/* ============================================================
+   INFORMATION ROWS
+============================================================ */
 
-    margin-bottom:0;
+.personal-info p,
+.academic-info p{
 
+    display:grid;
+
+    grid-template-columns:120px 1fr;
+
+    gap:10px;
+
+    padding:10px 0;
+
+    border-bottom:1px solid rgba(226,232,240,.7);
+
+    align-items:center;
 }
 
-/* ==========================================================
+.personal-info p:last-child,
+.academic-info p:last-child{
+
+    border-bottom:none;
+}
+
+.personal-info span,
+.academic-info span{
+
+    color:var(--text-light);
+
+    font-size:.92rem;
+}
+
+.personal-info strong,
+.academic-info strong{
+
+    text-align:right;
+
+    color:var(--text);
+
+    font-weight:600;
+}
+
+/* ============================================================
    SKILLS
-========================================================== */
+============================================================ */
 
 .skills ul{
-
-    list-style:none;
 
     display:flex;
 
     flex-wrap:wrap;
 
-    gap:12px;
-
+    gap:10px;
 }
 
 .skills li{
 
-    background:#F1F5F9;
+    list-style:none;
 
-    border:1px solid #CBD5E1;
+    background:
+    linear-gradient(
+        135deg,
+        #dbeafe,
+        #eff6ff
+    );
+
+    color:var(--primary);
+
+    padding:9px 16px;
 
     border-radius:999px;
 
-    padding:10px 18px;
+    font-size:.9rem;
 
-    font-size:.95rem;
+    font-weight:600;
 
-    transition:.3s ease;
+    transition:.3s;
 
+    cursor:default;
 }
 
 .skills li:hover{
 
-    background:#1E3A8A;
+    background:
+    linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
 
-    color:#ffffff;
+    color:white;
 
-    border-color:#1E3A8A;
-
+    transform:
+    translateY(-3px);
 }
 
-/* ==========================================================
+/* ============================================================
    CONTACT
-========================================================== */
+============================================================ */
 
 .contact a{
 
-    display:inline-block;
+    display:inline-flex;
 
-    color:#1E3A8A;
+    align-items:center;
 
-    text-decoration:none;
+    margin:8px 0;
 
-    margin-bottom:14px;
+    color:var(--primary);
 
-    transition:.3s ease;
+    font-weight:600;
 
-    font-weight:500;
-
+    transition:.3s;
 }
 
 .contact a:hover{
 
-    color:#1D4ED8;
+    color:var(--secondary);
 
-    transform:translateX(4px);
-
+    transform:
+    translateX(5px);
 }
 
-/* ==========================================================
-   GRADUATION STATUS
-========================================================== */
+/* ============================================================
+   STATUS
+============================================================ */
 
-.graduation-status p{
+.graduated,
+.not-graduated{
 
-    font-size:1.1rem;
+    display:inline-flex;
 
-    font-weight:600;
+    align-items:center;
 
-    color:#16A34A;
+    justify-content:center;
 
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    font-weight:700;
+
+    width:fit-content;
 }
 
-/* ==========================================================
+.graduated{
+
+    background:var(--success-bg);
+
+    color:var(--success);
+}
+
+.not-graduated{
+
+    background:var(--danger-bg);
+
+    color:var(--danger);
+}
+
+/* ============================================================
    FOOTER
-========================================================== */
+============================================================ */
 
 .footer{
 
-    margin-top:32px;
+    padding:20px;
 
     text-align:center;
 
-    color:#64748B;
+    border-top:1px solid rgba(226,232,240,.7);
 
-    border-top:1px solid #CBD5E1;
+    background:rgba(248,250,252,.8);
 
-    padding-top:24px;
+    color:var(--text-light);
 
+    font-size:.9rem;
 }
 
-/* ==========================================================
-   ACCESSIBILITY
-========================================================== */
-
-::selection{
-
-    background:#1E3A8A;
-
-    color:#ffffff;
-
-}
-
-a:focus-visible{
-
-    outline:2px solid #1E3A8A;
-
-    outline-offset:4px;
-
-    border-radius:4px;
-
-}
-
-/* ==========================================================
+/* ============================================================
    SCROLLBAR
-========================================================== */
+============================================================ */
 
 ::-webkit-scrollbar{
 
     width:10px;
-
-}
-
-::-webkit-scrollbar-track{
-
-    background:#E2E8F0;
-
 }
 
 ::-webkit-scrollbar-thumb{
 
-    background:#94A3B8;
+    background:
+    linear-gradient(
+        var(--primary),
+        var(--secondary)
+    );
 
-    border-radius:999px;
-
+    border-radius:20px;
 }
 
-::-webkit-scrollbar-thumb:hover{
-
-    background:#1E3A8A;
-
-}
-
-/* ==========================================================
+/* ============================================================
    RESPONSIVE
-========================================================== */
+============================================================ */
 
 @media (max-width:768px){
 
-    body{
+body{
 
-        padding:24px 16px;
-
-    }
-
-    .header{
-
-        padding:36px 24px;
-
-    }
-
-    .header h1{
-
-        font-size:1.9rem;
-
-    }
-
-    .main-container{
-
-        grid-template-columns:1fr;
-
-    }
+padding:25px;
 
 }
 
-@media (max-width:480px){
+.student-card-grid{
 
-    .header img{
+grid-template-columns:1fr;
 
-        width:120px;
+}
 
-        height:120px;
+.personal-info p,
+.academic-info p{
 
-    }
+grid-template-columns:1fr;
 
-    .header h1{
+}
 
-        font-size:1.7rem;
+.personal-info strong,
+.academic-info strong{
 
-    }
+text-align:left;
 
-    .personal-info,
-    .academic-info,
-    .skills,
-    .contact,
-    .graduation-status{
+margin-top:4px;
 
-        padding:24px;
+}
 
-    }
+.header img{
 
-    .skills li{
+width:120px;
 
-        width:100%;
+height:120px;
 
-        text-align:center;
-
-    }
+}
 
 }

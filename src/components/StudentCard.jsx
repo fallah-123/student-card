@@ -13,12 +13,12 @@ export default function StudentCard({
   skills,
 }) {
   return (
-    <>
+    <article className='student-card'>
       {/* header section */}
       <header className='header'>
         <img src={profileImage} alt='profile-image' />
-        <h1>Name: {name}</h1>
-        <p>ID: {id}</p>
+        <h1>{name}</h1>
+        <p>{id}</p>
       </header>
 
       {/* Main */}
@@ -26,18 +26,39 @@ export default function StudentCard({
         {/* Personal Info */}
         <section className='personal-info'>
           <h2>Personal Information</h2>
-          <p>Age: {age}</p>
-          <p>Gender: {gender}</p>
-          <p>Address: {address}</p>
+          <p>
+            <span>Age</span>
+            <strong>{age}</strong>
+          </p>
+          <p>
+            <span>Gender</span>
+            <strong>{gender}</strong>
+          </p>
+          <p>
+            <span>Address</span>
+            <strong>{address}</strong>
+          </p>
         </section>
 
         {/* academic info */}
         <section className='academic-info'>
           <h2>Academic Information</h2>
-          <p>University: {university}</p>
-          <p> Department: {department}</p>
-          <p>Year: {year}</p>
-          <p>GPA: {cgpa.toFixed(2)}</p>
+          <p>
+            <span>University</span>
+            <strong>{university}</strong>
+          </p>
+          <p>
+            <span>Department</span>
+            <strong>{department}</strong>
+          </p>
+          <p>
+            <span>Year</span>
+            <strong>{year}</strong>
+          </p>
+          <p>
+            <span>GPA</span>
+            <strong>{cgpa.toFixed(2)}</strong>
+          </p>
         </section>
 
         {/* Skills section */}
@@ -53,14 +74,17 @@ export default function StudentCard({
         {/* contact */}
         <section className='contact'>
           <h2>Contact</h2>
-          <a href='tel: +91 842-388-6087'> +91 842-388-6087</a> <br />
-          <a href='mailto: john@gmail'>john@gmail</a>
+          <a href='tel:+91 842-388-6087'> +91 842-388-6087</a> <br />
+          <a href='mailto:john@gmail'>john@gmail</a>
         </section>
 
         {/* graduation status */}
         <section className='graduation-status'>
           <h2>Graduation Status</h2>
-          <p> {isGraduated ? 'Graduated' : 'Not Graduated'} </p>
+          <p className={isGraduated ? 'graduated' : 'not-graduated'}>
+            {' '}
+            {isGraduated ? 'Graduated' : 'Not Graduated'}{' '}
+          </p>
         </section>
       </main>
 
@@ -68,6 +92,6 @@ export default function StudentCard({
       <footer className='footer'>
         <p>&copy; 2026 John S. Fallah</p>
       </footer>
-    </>
+    </article>
   );
 }
