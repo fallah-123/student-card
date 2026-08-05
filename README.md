@@ -172,7 +172,7 @@ The UI follows a timeless and professional design philosophy.
 **John S. Fallah**
 
 - GitHub: https://github.com/fallah-123
-- LinkedIn: https://linkedin.com/in/https://www.linkedin.com/in/john-fallah-b06910374/
+- LinkedIn: https://www.linkedin.com/in/john-fallah-b06910374/
 
 ---
 
