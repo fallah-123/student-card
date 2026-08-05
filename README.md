@@ -136,19 +136,19 @@ The UI follows a timeless and professional design philosophy.
 
 ### Desktop
 
-_Add screenshot here_
+(./screenshots/desktopPreview.png)
 
 ---
 
 ### Tablet
 
-_Add screenshot here_
+(./screenshots/tabletPreview.png)
 
 ---
 
 ### Mobile
 
-_Add screenshot here_
+(./screenshots/mobilePreview.png)
 
 ---
 
