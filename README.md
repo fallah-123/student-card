@@ -176,6 +176,9 @@ The UI follows a timeless and professional design philosophy.
 
 ---
 
+🌐 Live Demo
+https://student-card-nu.vercel.app/
+
 ## 📄 License
 
 This project is licensed under the MIT License.
