@@ -1,24 +1,21 @@
 export default function StudentCard({
   profileImage,
+
   name,
   id,
   age,
   gender,
   address,
-  university,
-  department,
-  year,
-  cgpa,
+  education,
   isGraduated,
   skills,
   contact,
-  email,
 }) {
   return (
     <article className='student-card'>
       {/* header section */}
       <header className='header'>
-        <img src={profileImage} alt='profile-image' />
+        <img src={profileImage} alt={`${name} Profile`} />
         <h1>{name}</h1>
         <p>{id}</p>
       </header>
@@ -38,7 +35,9 @@ export default function StudentCard({
           </p>
           <p>
             <span>Address</span>
-            <strong>{address}</strong>
+            <strong>
+              {address.street}, {address.city}, {address.country}
+            </strong>
           </p>
         </section>
 
@@ -47,19 +46,19 @@ export default function StudentCard({
           <h2>Academic Information</h2>
           <p>
             <span>University</span>
-            <strong>{university}</strong>
+            <strong>{education.university}</strong>
           </p>
           <p>
             <span>Department</span>
-            <strong>{department}</strong>
+            <strong>{education.department}</strong>
           </p>
           <p>
             <span>Year</span>
-            <strong>{year}</strong>
+            <strong>{education.year}</strong>
           </p>
           <p>
             <span>GPA</span>
-            <strong>{cgpa.toFixed(2)}</strong>
+            <strong>{education.cgpa.toFixed(2)}</strong>
           </p>
         </section>
 
@@ -76,8 +75,8 @@ export default function StudentCard({
         {/* contact */}
         <section className='contact'>
           <h2>Contact</h2>
-          <a href={`tel:${contact}`}> {contact}</a> <br />
-          <a href={`mailto:${email}`}> {email}</a>
+          <a href={`tel:${contact.phone}`}> {contact.phone}</a> <br />
+          <a href={`mailto:${contact.email}`}> {contact.email}</a>
         </section>
 
         {/* graduation status */}
@@ -91,9 +90,6 @@ export default function StudentCard({
       </main>
 
       {/* footer */}
-      <footer className='footer'>
-        <p>&copy; 2026 John S. Fallah</p>
-      </footer>
     </article>
   );
 }
