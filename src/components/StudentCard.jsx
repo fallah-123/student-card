@@ -11,6 +11,8 @@ export default function StudentCard({
   cgpa,
   isGraduated,
   skills,
+  contact,
+  email,
 }) {
   return (
     <article className='student-card'>
@@ -74,8 +76,8 @@ export default function StudentCard({
         {/* contact */}
         <section className='contact'>
           <h2>Contact</h2>
-          <a href='tel:+91 842-388-6087'> +91 842-388-6087</a> <br />
-          <a href='mailto:john@gmail'>john@gmail</a>
+          <a href={`tel:${contact}`}> {contact}</a> <br />
+          <a href={`mailto:${email}`}> {email}</a>
         </section>
 
         {/* graduation status */}
